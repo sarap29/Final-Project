@@ -62,7 +62,7 @@ const CreateRecipeButton = ({ onRecipeCreated }) => {
 
   const handleCreateRecipe = async () => {
     try {
-      const response = await fetch(process.env.BACKEND_URL + "/dashboard/recipes", {
+      const response = await fetch(process.env.BACKEND_URL + "/api/dashboard/recipes", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

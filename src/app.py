@@ -97,7 +97,7 @@ def get_users():
 
 
 # READ |
-@app.route('/profile', methods=['GET'])
+@app.route('/api/profile', methods=['GET'])
 @jwt_required()
 @active_account_required
 def get_user():
@@ -711,7 +711,7 @@ def get_user_recipe(recipe_id):
 # UPDATE |
 
 
-@app.route('/dashboard/recipes/<int:recipe_id>', methods=['PUT'])
+@app.route('/api/dashboard/recipes/<int:recipe_id>', methods=['PUT'])
 @jwt_required()
 @active_account_required
 def update_recipe(recipe_id):
