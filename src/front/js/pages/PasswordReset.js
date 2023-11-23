@@ -23,7 +23,7 @@ const PasswordReset = () => {
 
         try {
             console.log("Token:", reset_token);
-            const response = await fetch(process.env.BACKEND_URL + `/resetpassword/${reset_token}`, {
+            const response = await fetch(process.env.BACKEND_URL + `/api/resetpassword/${reset_token}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

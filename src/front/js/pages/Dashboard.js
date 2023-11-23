@@ -16,7 +16,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchDashboardData = async () => {
       try {
-        const response = await fetch(process.env.BACKEND_URL + "/dashboard", {
+        const response = await fetch(process.env.BACKEND_URL + "/api/dashboard", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${localStorage.getItem("jwt-token")}`

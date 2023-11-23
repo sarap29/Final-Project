@@ -16,7 +16,7 @@ const AlmaCenaSidebar = () => {
   useEffect(() => {
     const fetchDashboardData = async () => {
       try {
-        const response = await fetch(process.env.BACKEND_URL + "/dashboard", {
+        const response = await fetch(process.env.BACKEND_URL + "/api/dashboard", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${localStorage.getItem("jwt-token")}`
@@ -60,20 +60,20 @@ const AlmaCenaSidebar = () => {
 
 
         <div className="menuvertical" >
-        <div className="table-responsive usuario-registrado">
-          <table>
-            <tr>
-              <th rowspan="2" className="imagen-usuario"><img src={userprofile} alt="" /></th>
-              <td colspan="2" className="info-usuario-registrado"><Link className="enlace-user" to="/dashboard/profile"> {user.name} {user.last_name} </Link></td>
-            </tr>
-            <tr>
-              <td ><span className="info-company">Company</span></td>
-              <td className="icono-usuario"><Link className="enlace-user" to="/dashboard/edit-profile"><i class="fa-solid fa-user-pen fa-sm icono-usuario"></i></Link></td>
-            </tr>
-            <tr>
+          <div className="table-responsive usuario-registrado">
+            <table>
+              <tr>
+                <th rowspan="2" className="imagen-usuario"><img src={userprofile} alt="" /></th>
+                <td colspan="2" className="info-usuario-registrado"><Link className="enlace-user" to="/dashboard/profile"> {user.name} {user.last_name} </Link></td>
+              </tr>
+              <tr>
+                <td ><span className="info-company">Company</span></td>
+                <td className="icono-usuario"><Link className="enlace-user" to="/dashboard/edit-profile"><i class="fa-solid fa-user-pen fa-sm icono-usuario"></i></Link></td>
+              </tr>
+              <tr>
 
-            </tr>
-          </table>
+              </tr>
+            </table>
           </div>
           <ul className="nav flex-column fa-ul">
 
@@ -83,20 +83,20 @@ const AlmaCenaSidebar = () => {
 
             <li className="nav-item almacenasidebar"><Link className="menu-navega" to="/dashboard">
               <p className="menu-text">  <i className="fa-solid fa-table-columns fa-lg iconos-sidebar"></i>
-             Dashboard </p>  </Link> </li>
+                Dashboard </p>  </Link> </li>
 
 
             <li className="nav-item almacenasidebar"><Link className="menu-navega" to="/dashboard/ingredients">
-            <p className="menu-text"> <i className="fa-solid fa-wheat-awn fa-lg iconos-sidebar"></i>
-              Ingredients <span class="badge badge-secondary">1st</span></p></Link></li>
+              <p className="menu-text"> <i className="fa-solid fa-wheat-awn fa-lg iconos-sidebar"></i>
+                Ingredients <span class="badge badge-secondary">1st</span></p></Link></li>
 
             <li className="nav-item almacenasidebar"><Link className="menu-navega" to="/dashboard/recipes">
-            <p className="menu-text"> <i className="fa-solid fa-book fa-lg iconos-sidebar"></i>
-             Recipes <span class="badge badge-secondary">2nd</span></p></Link></li>
+              <p className="menu-text"> <i className="fa-solid fa-book fa-lg iconos-sidebar"></i>
+                Recipes <span class="badge badge-secondary">2nd</span></p></Link></li>
 
             <li className="nav-item almacenasidebar"><Link className="menu-navega" to="/dashboard/products">
-            <p className="menu-text"><i className="fas fa-cheese fa-lg iconos-sidebar"></i>
-              Products <span class="badge badge-secondary">3rd</span></p></Link></li>
+              <p className="menu-text"><i className="fas fa-cheese fa-lg iconos-sidebar"></i>
+                Products <span class="badge badge-secondary">3rd</span></p></Link></li>
           </ul>
         </div>
 

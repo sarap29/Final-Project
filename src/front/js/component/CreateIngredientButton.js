@@ -23,7 +23,7 @@ const CreateIngredientButton = ({ onIngredientCreated }) => {
     try {
       const token = localStorage.getItem("jwt-token");
   
-      const response = await fetch(process.env.BACKEND_URL + "/dashboard/ingredients", {
+      const response = await fetch(process.env.BACKEND_URL + "/api/dashboard/ingredients", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

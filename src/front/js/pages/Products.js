@@ -20,7 +20,7 @@ export const Products = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch(process.env.BACKEND_URL + "/dashboard/products", {
+      const response = await fetch(process.env.BACKEND_URL + "/api/dashboard/products", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,

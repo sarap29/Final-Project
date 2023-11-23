@@ -14,7 +14,7 @@ export const PasswordRecovery = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch(process.env.BACKEND_URL + "/passwordrecovery", {
+      const response = await fetch(process.env.BACKEND_URL + "/api/passwordrecovery", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

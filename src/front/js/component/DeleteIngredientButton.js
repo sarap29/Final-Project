@@ -9,7 +9,7 @@ const DeleteIngredientButton = ({ ingredient, onIngredientDeleted }) => {
 
   const handleDeleteIngredient = async () => {
     try {
-      const response = await fetch(process.env.BACKEND_URL + "/dashboard/ingredients", {
+      const response = await fetch(process.env.BACKEND_URL + "/api/dashboard/ingredients", {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

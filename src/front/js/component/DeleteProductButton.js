@@ -9,7 +9,7 @@ const DeleteProductButton = ({ product, onProductDeleted }) => {
 
   const handleDeleteProduct = async () => {
     try {
-      const response = await fetch(process.env.BACKEND_URL + "/dashboard/products", {
+      const response = await fetch(process.env.BACKEND_URL + "/api/dashboard/products", {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

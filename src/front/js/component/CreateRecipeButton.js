@@ -25,7 +25,7 @@ const CreateRecipeButton = ({ onRecipeCreated }) => {
 
   const fetchAvailableIngredients = async () => {
     try {
-      const response = await fetch(process.env.BACKEND_URL + "/dashboard/ingredients", {
+      const response = await fetch(process.env.BACKEND_URL + "/api/dashboard/ingredients", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("jwt-token")}`,

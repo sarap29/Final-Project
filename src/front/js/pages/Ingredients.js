@@ -22,7 +22,7 @@ const Ingredients = () => {
         return;
       }
 
-      const response = await fetch(process.env.BACKEND_URL + "/dashboard/ingredients", {
+      const response = await fetch(process.env.BACKEND_URL + "/api/dashboard/ingredients", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,

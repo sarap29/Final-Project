@@ -10,7 +10,7 @@ const DeleteRecipeButton = ({ recipe, onRecipeDeleted }) => {
   const handleDeleteRecipe = async () => {
     try {
       const response = await fetch(
-        `${process.env.BACKEND_URL}/dashboard/recipes/${recipe.receta_id}`,
+        `${process.env.BACKEND_URL}/api/dashboard/recipes/${recipe.receta_id}`,
         {
           method: "DELETE",
           headers: {

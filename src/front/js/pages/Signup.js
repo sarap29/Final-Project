@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { navigate } from "react-router-dom"; // Asegúrate de importar la función navigate
+import { navigate } from "react-router-dom"; 
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -22,7 +22,7 @@ export const Signup = () => {
 
   const enviarFormulario = async (event) => {
     event.preventDefault();
-    setError(""); // Limpiar errores al intentar registrar nuevamente
+    setError("");
     setRegistrationSuccess(false);
 
     if (
@@ -37,7 +37,6 @@ export const Signup = () => {
     }
 
     try {
-      // Realizar la solicitud de registro utilizando el método signup del contexto
       await actions.signup(
         user.name,
         user.last_name,
@@ -46,12 +45,10 @@ export const Signup = () => {
         user.address
       );
 
-      // Registro exitoso
       setRegistrationSuccess(true);
 
-     // Redirección despues de 3 segundos
       setTimeout(() => {
-        navigate("/login"); // Redirige a la página
+        navigate("/login");
       }, 3000);
     } catch (error) {
       setError(

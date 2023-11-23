@@ -18,7 +18,7 @@ const EditIngredientButton = ({ ingredient, onIngredientUpdated }) => {
 
   const handleUpdateIngredient = async () => {
     try {
-      const response = await fetch(process.env.BACKEND_URL + "/dashboard/ingredients", {
+      const response = await fetch(process.env.BACKEND_URL + "/api/dashboard/ingredients", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

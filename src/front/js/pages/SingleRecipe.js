@@ -17,7 +17,7 @@ const SingleRecipe = () => {
   useEffect(() => {
     const fetchRecipe = async () => {
       try {
-        const response = await fetch(process.env.BACKEND_URL + `/dashboard/recipes/${recipe_id}`, {
+        const response = await fetch(process.env.BACKEND_URL + `/api/dashboard/recipes/${recipe_id}`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${localStorage.getItem("jwt-token")}`
@@ -42,7 +42,7 @@ const SingleRecipe = () => {
 
   const handleMakeRecipe = async () => {
     try {
-      const response = await fetch(process.env.BACKEND_URL + "/dashboard/recipes/make", {
+      const response = await fetch(process.env.BACKEND_URL + "/api/dashboard/recipes/make", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

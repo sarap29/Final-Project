@@ -20,7 +20,7 @@ const EditProductButton = ({ product, onProductEdited }) => {
 
   const handleEditProduct = async () => {
     try {
-      const response = await fetch(process.env.BACKEND_URL + "/dashboard/products", {
+      const response = await fetch(process.env.BACKEND_URL + "/api/dashboard/products", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

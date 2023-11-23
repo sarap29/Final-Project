@@ -90,7 +90,7 @@ def sitemap():
 
 # READ | TODOS LOS USUARIOS
 
-@app.route('/users', methods=['GET'])
+@app.route('/api/users', methods=['GET'])
 def get_users():
     users = User.query.all()
     return jsonify([{"id": user.id, "username": user.name} for user in users]), 200
@@ -110,7 +110,7 @@ def get_user():
     return jsonify(user.serialize()), 200
 
 # UPDATE |
-@app.route('/profile', methods=['PUT'])
+@app.route('/api/profile', methods=['PUT'])
 @jwt_required()
 @active_account_required
 def update_user():
@@ -142,7 +142,7 @@ def update_user():
     return jsonify({"msg": "Perfil de usuario actualizado con éxito"}), 200
 
 # DELETE | 
-@app.route('/profile', methods=['DELETE'])
+@app.route('/api/profile', methods=['DELETE'])
 @jwt_required()
 @active_account_required
 def delete_user():
@@ -160,7 +160,7 @@ def delete_user():
 
 # PUT | REACTIVAR USUARIO POR EMAIL
 
-@app.route('/reactivate', methods=['PUT'])
+@app.route('/api/reactivate', methods=['PUT'])
 def reactivate_user():
     data = request.get_json()
     email_to_reactivate = data.get("email")
@@ -183,7 +183,7 @@ def reactivate_user():
 
 # SIGNUP #
 
-@app.route("/signup", methods=["POST"])
+@app.route("/api/signup", methods=["POST"])
 def signup():
     data = request.get_json()
     app.logger.info("Data received from signup endpoint: %s", data)
@@ -211,7 +211,7 @@ def signup():
 
 # LOGIN #
 
-@app.route("/login", methods=["POST"])
+@app.route("/api/login", methods=["POST"])
 def login():
     data = request.get_json()
     email = data.get("email")
@@ -230,7 +230,7 @@ def login():
 
 # USER | LOGOUT #
 
-@app.route("/logout", methods=["POST"])
+@app.route("/api/logout", methods=["POST"])
 @jwt_required()
 @active_account_required
 def logout():
@@ -252,7 +252,7 @@ app.config.update(dict(
 mail = Mail(app)
 
 # Generar token de restablecimiento de contraseña
-@app.route('/passwordrecovery', methods=['POST'])
+@app.route('/api/passwordrecovery', methods=['POST'])
 def password_recovery():
     email = request.json.get("email")
     user = User.query.filter_by(email=email).first()
@@ -286,7 +286,7 @@ def send_reset_email(email, reset_token):
 
 from flask_jwt_extended import get_jwt_identity
 
-@app.route('/resetpassword/<reset_token>', methods=['POST'])
+@app.route('/api/resetpassword/<reset_token>', methods=['POST'])
 def reset_password(reset_token):
     # Busca el usuario por el token de reset
     user = User.query.filter_by(reset_token=reset_token).first()
@@ -314,7 +314,7 @@ def reset_password(reset_token):
 
 # CREATE |
 
-@app.route('/dashboard/ingredients', methods=['POST'])
+@app.route('/api/dashboard/ingredients', methods=['POST'])
 @jwt_required()
 @active_account_required
 def create_ingredient():
@@ -352,7 +352,7 @@ def create_ingredient():
 
 # READ |
 
-@app.route('/dashboard/ingredients', methods=['GET'])
+@app.route('/api/dashboard/ingredients', methods=['GET'])
 @jwt_required()
 @active_account_required
 def get_user_ingredients():
@@ -377,7 +377,7 @@ def get_user_ingredients():
 
 # UPDATE |
 
-@app.route('/dashboard/ingredients', methods=['PUT'])
+@app.route('/api/dashboard/ingredients', methods=['PUT'])
 @jwt_required()
 @active_account_required
 def update_ingredient():
@@ -406,7 +406,7 @@ def update_ingredient():
 
 # DELETE |
 
-@app.route('/dashboard/ingredients', methods=['DELETE'])
+@app.route('/api/dashboard/ingredients', methods=['DELETE'])
 @jwt_required()
 @active_account_required
 def delete_ingredient():
@@ -440,7 +440,7 @@ def delete_ingredient():
 
 # CREATE |
 
-@app.route('/dashboard/products', methods=['POST'])
+@app.route('/api/dashboard/products', methods=['POST'])
 @jwt_required()
 @active_account_required
 def create_product():
@@ -479,7 +479,7 @@ def create_product():
 
 # READ |
 
-@app.route('/dashboard/products', methods=['GET'])
+@app.route('/api/dashboard/products', methods=['GET'])
 @jwt_required()
 @active_account_required
 def get_user_products():
@@ -503,7 +503,7 @@ def get_user_products():
 
 # UPDATE |
 
-@app.route('/dashboard/products', methods=['PUT'])
+@app.route('/api/dashboard/products', methods=['PUT'])
 @jwt_required()
 @active_account_required
 def update_product():
@@ -539,7 +539,7 @@ def update_product():
 
 # DELETE |
 
-@app.route('/dashboard/products', methods=['DELETE'])
+@app.route('/api/dashboard/products', methods=['DELETE'])
 @jwt_required()
 @active_account_required
 def delete_product():
@@ -574,7 +574,7 @@ def delete_product():
 
 # READ |
 
-@app.route('/dashboard/recipes', methods=['GET'])
+@app.route('/api/dashboard/recipes', methods=['GET'])
 @jwt_required()
 @active_account_required
 def get_user_recipes():
@@ -599,7 +599,7 @@ def get_user_recipes():
 
 # CREATE |
 
-@app.route('/dashboard/recipes', methods=['POST'])
+@app.route('/api/dashboard/recipes', methods=['POST'])
 @jwt_required()
 @active_account_required
 def create_recipe():
@@ -676,7 +676,7 @@ def create_recipe():
 
 # READ |
 
-@app.route('/dashboard/recipes/<int:recipe_id>', methods=['GET'])
+@app.route('/api/dashboard/recipes/<int:recipe_id>', methods=['GET'])
 @jwt_required()
 @active_account_required
 def get_user_recipe(recipe_id):
@@ -790,7 +790,7 @@ def update_recipe(recipe_id):
 # DELETE |
 
 
-@app.route('/dashboard/recipes/<int:recipe_id>', methods=['DELETE'])
+@app.route('/api/dashboard/recipes/<int:recipe_id>', methods=['DELETE'])
 @jwt_required()
 @active_account_required
 def delete_recipe(recipe_id):
@@ -824,7 +824,7 @@ def delete_recipe(recipe_id):
  # READ |
 
 
-@app.route('/dashboard', methods=['GET'])
+@app.route('/api/dashboard', methods=['GET'])
 @jwt_required()
 @active_account_required
 def get_user_dashboard():
@@ -882,7 +882,7 @@ def get_user_dashboard():
 ######################################################## MAKE RECIPE ############################################################
 
 
-@app.route('/dashboard/recipes/make', methods=['POST'])
+@app.route('/api/dashboard/recipes/make', methods=['POST'])
 @jwt_required()
 def make_recipe():
     try:

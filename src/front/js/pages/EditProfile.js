@@ -34,7 +34,7 @@ export const EditProfile = () => {
   useEffect(() => {
     const fetchDashboardData = async () => {
       try {
-        const response = await fetch(process.env.BACKEND_URL + "/profile", {
+        const response = await fetch(process.env.BACKEND_URL + "/api/profile", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${localStorage.getItem("jwt-token")}`
